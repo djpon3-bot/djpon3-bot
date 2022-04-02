@@ -1,0 +1,39 @@
+use only on autocode.com
+
+const lib = require('lib')({token: process.env.STDLIB_SECRET_TOKEN}); const jimp = require('jimp');
+
+let name = context.params.event.member.user.username let id = context.params.event.member.user.discriminator let author = ${name}+'#'+${id} const option = context.params.event.data.options[0].value let image = await jimp.read(${option}) image.resize(101, 101) image.circle()
+
+let base = await jimp.read('https://cdn.discordapp.com/attachments/900037096302071808/901843631093186640/blank.png') let overlay = await jimp.read('https://cdn.discordapp.com/attachments/900037096302071808/901874279287754772/a.png') let overlay2 = await jimp.read('https://cdn.discordapp.com/attachments/900037096302071808/901886205828943902/b.png') let chance = Math.floor(Math.random() * 5);
+
+await jimp.loadFont(jimp.FONT_SANS_16_WHITE).then(font => { overlay2.print( font, 26, 156, { text: ${name}#${id} }, 300, 50 ) });
+
+await jimp.loadFont(jimp.FONT_SANS_16_WHITE).then(font => { overlay2.print( font, 46, 416, { text: Message @${name} }, 600, 17 ) });
+
+if (chance === 0 ) { let color = await jimp.read('https://cdn.discordapp.com/attachments/900037096302071808/901823654395019294/blue.png') base.composite(color, 0, 0) base.composite(overlay, 0, 0) base.composite(image, 32, 32) base.composite(overlay2, 0, 0)
+
+let buffer = await base.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: '', channel_id: context.params.event.channel_id, filename: 'sample.png', file: buffer });
+
+let avatar = await image.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: '', channel_id: context.params.event.channel_id, filename: 'profile.png', file: avatar }); } if (chance === 1) { let color = await jimp.read('https://cdn.discordapp.com/attachments/900037096302071808/901823677119746128/gray.png') base.composite(color, 0, 0) base.composite(overlay, 0, 0) base.composite(image, 32, 32) base.composite(overlay2, 0, 0)
+
+let buffer = await base.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is what the profile looks like:', channel_id: context.params.event.channel_id, filename: 'sample.png', file: buffer });
+
+let avatar = await image.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is the profile:', channel_id: context.params.event.channel_id, filename: 'profile.png', file: avatar }); } if (chance === 2) { let color = await jimp.read('https://cdn.discordapp.com/attachments/900037096302071808/901823719108919356/green.png') base.composite(color, 0, 0) base.composite(overlay, 0, 0) base.composite(image, 32, 32) base.composite(overlay2, 0, 0)
+
+let buffer = await base.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is what the profile looks like:', channel_id: context.params.event.channel_id, filename: 'sample.png', file: buffer });
+
+let avatar = await image.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is the profile:', channel_id: context.params.event.channel_id, filename: 'profile.png', file: avatar }); } if (chance === 3) { let color = await jimp.read('https://cdn.discordapp.com/attachments/900037096302071808/901823736158769173/yellow.png') base.composite(color, 0, 0) base.composite(overlay, 0, 0) base.composite(image, 32, 32) base.composite(overlay2, 0, 0)
+
+let buffer = await base.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is what the profile looks like:', channel_id: context.params.event.channel_id, filename: 'sample.png', file: buffer });
+
+let avatar = await image.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is the profile:', channel_id: context.params.event.channel_id, filename: 'profile.png', file: avatar }); } if (chance === 4) { let color = await jimp.read('https://cdn.discordapp.com/attachments/900037096302071808/901823754936672266/red.png') base.composite(color, 0, 0) base.composite(overlay, 0, 0) base.composite(image, 32, 32) base.composite(overlay2, 0, 0) base.composite(overlay2, 0, 0)
+
+let buffer = await base.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is what the profile looks like:', channel_id: context.params.event.channel_id, filename: 'sample.png', file: buffer });
+
+let avatar = await image.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is the profile:', channel_id: context.params.event.channel_id, filename: 'profile.png', file: avatar }); } if (chance === 5) { let color = await jimp.read('https://cdn.discordapp.com/attachments/900037096302071808/901823870154190918/pink.png') base.composite(color, 0, 0) base.composite(overlay, 0, 0) base.composite(image, 32, 32) base.composite(overlay2, 0, 0)
+
+let buffer = await base.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is what the profile looks like:', channel_id: context.params.event.channel_id, filename: 'sample.png', file: buffer });
+
+let avatar = await image.getBufferAsync(jimp.MIME_PNG); await lib.discord.channels['@0.2.0'].messages.create({ content: 'Here is the profile:', channel_id: context.params.event.channel_id, filename: 'profile.png', file: avatar }); }
+
+avatar commands
